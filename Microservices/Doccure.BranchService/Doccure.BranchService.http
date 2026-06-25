@@ -1,4 +1,4 @@
-@Doccure.BranchService_HostAddress = http://localhost:5058
+@Doccure.BranchService_HostAddress = http://localhost:5234
 
 GET {{Doccure.BranchService_HostAddress}}/weatherforecast/
 Accept: application/json
