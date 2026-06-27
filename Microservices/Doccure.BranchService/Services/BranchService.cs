@@ -40,7 +40,7 @@ namespace Doccure.BranchService.Services
 
         public async Task<GetBranchByIdDto> GetByIdBranchAsync(string id)
         {
-            var value = await _branchCollection.FindAsync(x => x.BranchId == id);
+            var value = await _branchCollection.Find<Branch>(x => x.BranchId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetBranchByIdDto>(value);
         }
 

@@ -1,9 +1,13 @@
 using Doccure.BranchService.Settings;
 using Microsoft.Extensions.Options;
+using Doccure.BranchService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<IBranchService, BranchService>();//IBranchservice görünce branchservice'i çağıracak ve onunla çalışacak. (Dependency Injection)
+builder.Services.AddAutoMapper(typeof(Program));
 
 // Bu iki satır şunu yapar:
 // 1) appsettings.json'daki "DatabaseSettings" bölümünü DatabaseSettings sınıfına bağlar
