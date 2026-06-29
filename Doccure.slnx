@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Microservices/">
     <Project Path="Microservices/Doccure.BranchService/Doccure.BranchService.csproj" Id="82f0199f-6c71-43e0-8764-a41d636b4d27" />
+    <Project Path="Microservices/Doccure.DoctorService/Doccure.DoctorService.csproj" Id="2af92783-89d4-4368-aad5-8818564e6de5" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
