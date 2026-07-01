@@ -24,6 +24,7 @@ namespace Doccure.DoctorService.Entities
         public List<Education> Educations { get; set; } = new List<Education>();
         public List<Experience> Experiences { get; set; } = new List<Experience>();
         public List<Award> Awards { get; set; } = new List<Award>();
+        public List<Location> Locations { get; set; } = new List<Location>();
         public List<string>? Services { get; set; }
         public List<string> Specializations { get; set; } = new List<string>();
     }

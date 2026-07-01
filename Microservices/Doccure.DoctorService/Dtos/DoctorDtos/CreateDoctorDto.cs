@@ -15,13 +15,12 @@ namespace Doccure.DoctorService.Dtos.DoctorDtos
         public string? About { get; set; }
         public int ExperienceYear { get; set; }
         public decimal PricePerHour { get; set; }
-        
 
-        //SubCollectionlar :İç içe veri tutabilir.
-        public List<Education> Educations { get; set; } = new List<Education>();
-        public List<Experience> Experiences { get; set; } = new List<Experience>();
-        public List<Award> Awards { get; set; } = new List<Award>();
-        public List<string> Services { get; set; }
+        public List<EducationDto> Educations { get; set; } = new List<EducationDto>();
+        public List<ExperienceDto> Experiences { get; set; } = new List<ExperienceDto>();
+        public List<AwardDto> Awards { get; set; } = new List<AwardDto>();
+        public List<LocationDto> Locations { get; set; } = new List<LocationDto>();
+        public List<string> Services { get; set; } = new List<string>();
         public List<string> Specializations { get; set; } = new List<string>();
     }
 }

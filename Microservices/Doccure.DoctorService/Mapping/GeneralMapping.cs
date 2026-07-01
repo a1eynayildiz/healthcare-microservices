@@ -12,6 +12,11 @@ namespace Doccure.DoctorService.Mapping
             CreateMap<Doctor, CreateDoctorDto>().ReverseMap();
             CreateMap<Doctor, UpdateDoctorDto>().ReverseMap();
             CreateMap<Doctor, GetByIdDoctorDto>().ReverseMap();
+
+            CreateMap<Education, EducationDto>().ReverseMap();
+            CreateMap<Experience, ExperienceDto>().ReverseMap();
+            CreateMap<Award, AwardDto>().ReverseMap();
+            CreateMap<Location, LocationDto>().ReverseMap();
         }
     }
 }

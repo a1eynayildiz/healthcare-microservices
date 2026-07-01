@@ -1,6 +1,9 @@
 ﻿namespace Doccure.DoctorService.Settings
 {
-    public class DatabaseSettings
+    public class DatabaseSettings :IDatabaseSettings
     {
+        public string? ConnectionString { get; set; } //bağlantı adresi 
+        public string? DatabaseName { get; set; }
+        public string? DoctorCollectionName { get; set; }
     }
 }
