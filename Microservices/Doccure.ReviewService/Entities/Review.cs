@@ -20,13 +20,12 @@ namespace Doccure.ReviewService.Entities
         // Yorum içeriği
         public string Comment { get; set; }
         public int Rating { get; set; }
-        public bool IsRecommended { get; set; }
+        public bool Recommended { get; set; }
         public int LikeCount { get; set; }
 
         // Metadata
         public DateTime CreatedDate { get; set; }
-        public bool IsActive
-        {
-            get; set;
-        }
+        public bool Status { get; set; }
+       
+    }
 }

@@ -40,7 +40,7 @@ namespace Doccure.DoctorService.Services.DoctorServices
 
         public async Task<GetByIdDoctorDto> GetByIdDoctorAsync(string id)
         {
-            var value = await _doctorCollection.Find<Doctor>(x => x.DoctorId == id).FirstOrDefaultAsync();
+            var value = await _doctorCollection.Find(x => x.DoctorId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdDoctorDto>(value);
         }
 
