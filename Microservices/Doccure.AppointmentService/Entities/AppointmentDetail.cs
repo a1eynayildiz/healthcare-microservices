@@ -5,7 +5,7 @@
         
         public int AppointmentDetailId { get; set; }
         public int AppointmentId { get; set; }
-        public Appointment Appointment { get; set; } // Navigation property to Appointment
+        public Appointment? Appointment { get; set; } // Navigation property to Appointment
         public string? Complaint { get; set; }          
         public string? Notes { get; set; }          
         public string? Diagnosis { get; set; } 

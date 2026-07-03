@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Doccure.AppointmentService.Services
 {
-    public class AppointmentService : IAppointmentServices
+    public class AppointmentServices : IAppointmentServices
     {
         private readonly IMapper _mapper;
         private readonly AppointmentContext _context;
 
-        public AppointmentService(IMapper mapper, AppointmentContext context)
+        public AppointmentServices(IMapper mapper, AppointmentContext context)
         {
             _mapper = mapper;
             _context = context;
@@ -40,7 +40,7 @@ namespace Doccure.AppointmentService.Services
             return _mapper.Map<List<ResultAppointmentDto>>(values);
         }
 
-        public async Task<GetAppointmentByIdDto> GetByIdAppointmentAsync(int id)
+        public async Task<GetAppointmentByIdDto> GetByIdAsync(int id)
         {
             var value = await _context.Appointments
                 .FirstOrDefaultAsync(x => x.AppointmentId == id);
@@ -48,12 +48,11 @@ namespace Doccure.AppointmentService.Services
             return _mapper.Map<GetAppointmentByIdDto>(value);
         }
 
-        public async Task UpdatetAsync(UpdateAppointmentDto dto)
+        public async Task UpdateAsync(UpdateAppointmentDto dto)
         {
-            var value = await _context.Appointments.FindAsync(dto.AppointmentId );
+            var value = _mapper.Map<Appointment>(dto);   // dto'yu entity'e çevir (yeni değerlerle)
             _context.Appointments.Update(value);
             await _context.SaveChangesAsync();
-            
         }
     }
 }

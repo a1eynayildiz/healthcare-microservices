@@ -5,9 +5,10 @@ namespace Doccure.AppointmentService.Services
     public interface IAppointmentServices
     {
         Task<List<ResultAppointmentDto>> GetAllAsync();
-        Task<GetAppointmentByIdDto> GetByIdAppointmentAsync(int id);
+        Task<GetAppointmentByIdDto> GetByIdAsync(int id);
         Task CreateAsync(CreateAppointmentDto dto);
-        Task UpdatetAsync(UpdateAppointmentDto dto);
+        Task UpdateAsync(UpdateAppointmentDto dto);
         Task DeleteAsync(int id);
+        
     }
 }
