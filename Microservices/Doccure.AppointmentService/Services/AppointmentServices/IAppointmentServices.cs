@@ -1,6 +1,6 @@
 ﻿using Doccure.AppointmentService.Dtos.AppointmentDtos;
 
-namespace Doccure.AppointmentService.Services
+namespace Doccure.AppointmentService.Services.AppointmentServices
 {
     public interface IAppointmentServices
     {

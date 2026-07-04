@@ -1,5 +1,5 @@
 ﻿using Doccure.AppointmentService.Dtos.AppointmentDtos;
-using Doccure.AppointmentService.Services;
+using Doccure.AppointmentService.Services.AppointmentServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +28,11 @@ namespace Doccure.AppointmentService.Controller
         public async Task<IActionResult> GetAppointment(int id)
         {
             var value = await _service.GetByIdAsync(id);
+
+            if (value == null)
+            {
+                return NotFound("Appointment not found.");
+            }
             return Ok(value);
         }
 
@@ -39,16 +44,16 @@ namespace Doccure.AppointmentService.Controller
             return Ok("Appointment added successfully.");
         }
 
-        
-        
+
+        [HttpPut]
         public async Task<IActionResult> UpdateAppointment(UpdateAppointmentDto dto)
         {
             await _service.UpdateAsync(dto);
-            return Ok("Güncelleme başarılı!");
+            return Ok("Updated successfully!");
         }
 
-        // DELETE /api/appointments/{id} → ID'ye göre randevu sil
-        [HttpDelete("{id}")]
+        
+        [HttpDelete]
         public async Task<IActionResult> DeleteAppointment(int id)
         {
             await _service.DeleteAsync(id);

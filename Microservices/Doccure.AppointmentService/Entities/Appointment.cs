@@ -11,7 +11,6 @@
        
         public AppointmentDetail AppointmentDetail { get; set; }
         public List<DoctorSchedule> DoctorSchedules { get; set; }
-
-
+        
     }
 }

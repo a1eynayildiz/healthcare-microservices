@@ -4,7 +4,7 @@ using Doccure.AppointmentService.Dtos.AppointmentDtos;
 using Doccure.AppointmentService.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Doccure.AppointmentService.Services
+namespace Doccure.AppointmentService.Services.AppointmentServices
 {
     public class AppointmentServices : IAppointmentServices
     {
@@ -50,8 +50,14 @@ namespace Doccure.AppointmentService.Services
 
         public async Task UpdateAsync(UpdateAppointmentDto dto)
         {
-            var value = _mapper.Map<Appointment>(dto);   // dto'yu entity'e çevir (yeni değerlerle)
-            _context.Appointments.Update(value);
+
+            var value = await _context.Appointments.FindAsync(dto.AppointmentId);
+            if (value == null)
+                return;
+
+            value.AppointmentDate = dto.AppointmentDate;
+            value.Status = dto.Status;
+
             await _context.SaveChangesAsync();
         }
     }

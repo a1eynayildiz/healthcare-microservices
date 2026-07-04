@@ -1,6 +1,6 @@
 using Doccure.AppointmentService.Context;
-using Doccure.AppointmentService.Services;
-
+using Doccure.AppointmentService.Services.AppointmentDetailServices;
+using Doccure.AppointmentService.Services.AppointmentServices;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppointmentContext>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IAppointmentServices, AppointmentServices>();
+builder.Services.AddScoped<IAppointmentDetailService, AppointmentDetailService>();
 
 
 builder.Services.AddControllers();
