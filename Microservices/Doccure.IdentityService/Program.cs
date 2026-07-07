@@ -1,24 +1,18 @@
 using Doccure.IdentityService.Context;
 using Doccure.IdentityService.Entities;
+using Doccure.IdentityService.Services;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddDbContext<DoccureContext>();
-
-builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
-{
-    options.Password.RequireDigit = true;
-    options.Password.RequireLowercase = true;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;
-})
+builder.Services.AddIdentity<AppUser, IdentityRole>()
     .AddEntityFrameworkStores<DoccureContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

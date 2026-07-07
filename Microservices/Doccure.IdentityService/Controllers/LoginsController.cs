@@ -1,30 +1,31 @@
 ﻿using Doccure.IdentityService.Dtos;
 using Doccure.IdentityService.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Doccure.IdentityService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RegistersController : ControllerBase
+    public class LoginsController : ControllerBase
     {
         private readonly IAuthService _authService;
 
-        public RegistersController(IAuthService authService)
+        public LoginsController(IAuthService authService)
         {
             _authService = authService;
         }
-
         [HttpPost]
-        public async Task<IActionResult> CreateRegister([FromBody] RegisterDto registerDto)
+        public async Task<IActionResult> UserLogin(LoginDto dto)
         {
-            var result = await _authService.RegisterAsync(registerDto);
-            if(!result)
+            var result = await _authService.LoginAsync(dto);
+            if (!result)
             {
-                return BadRequest("Kullanıcı Oluşturulamadı!");
+                return BadRequest("Email veya şifre hatalı");   
             }
-            return Ok("Ekleme Başarılı!");
+            
+            return Ok("Giriş başarılı!");
         }
     }
 }
