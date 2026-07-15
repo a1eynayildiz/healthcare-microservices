@@ -4,6 +4,7 @@
     <Project Path="Microservices/Doccure.BranchService/Doccure.BranchService.csproj" Id="82f0199f-6c71-43e0-8764-a41d636b4d27" />
     <Project Path="Microservices/Doccure.DoctorService/Doccure.DoctorService.csproj" Id="2af92783-89d4-4368-aad5-8818564e6de5" />
     <Project Path="Microservices/Doccure.IdentityService/Doccure.IdentityService.csproj" Id="63202b0c-981f-4e01-ad40-4b466d579c7f" />
+    <Project Path="Microservices/Doccure.PrescriptionService/Doccure.PrescriptionService.csproj" Id="41e18c45-0a8c-4166-92e9-369375cef7b3" />
     <Project Path="Microservices/Doccure.ReviewService/Doccure.ReviewService.csproj" Id="538dbf74-79d9-4134-8256-f65d19922a95" />
   </Folder>
   <Folder Name="/Requirements/" />
